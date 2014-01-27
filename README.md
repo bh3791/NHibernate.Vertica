@@ -1,7 +1,7 @@
 NHibernate.Vertica
 ==================
 
-Vertica 7 (Unofficial) Support for NHibernate
+Vertica 7 (Unofficial) Support for NHibernate (and Linq to NHibernate)
 
 NHibernate does not support Vertica at present. Some people seem to have been make use of the PostgreSQL.Standard configuration, though mostly on the Java front. It didn't work for me. In fact, there are numerous limitations and incompatibilities that crop up when using this NHibernate configuration.
 
@@ -21,11 +21,15 @@ It is then possible to use NHibernate with Vertica 7 to:
                                  where make.Name == makeName
                                  select make).SingleOrDefault();
                                  
-  a) insert and update data
-  b) generate schema into Vertica from POCOs
-  c) Use Vertica-style prepared statements (these differ from PostGreSQL)
+  b) insert and update data
+  c) generate schema into Vertica from POCOs
+  d) Use Vertica-style prepared statements (these differ from PostGreSQL)
   
 The TestConsole project demonstrates how to integrate NHibernate with Vertica 7.
+
+Pre-requisites:
+Dependent DLLs are referenced from nuget where possible. 
+Also requires the installation of the Vertica 7 ADO.NET Driver (Vertica.Data)
 
 
 
