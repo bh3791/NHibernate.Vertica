@@ -17,11 +17,18 @@ ADO.NET provider by subclassing the PostgreSQL Dialect:
                               .ShowSql()
 
 It is then possible to use NHibernate with Vertica 7 to:
-  a) insert and update data, 
-  b) generate schema into Vertica
-  c) use Linq to NHibernate with prepared statements
+  a) select data out of Vertica using Linq to NHibernate:
+                            var makeQuery = (from make in session.Query<Make>()
+                                 where make.Name == makeName
+                                 select make).SingleOrDefault();
+  a) insert and update data
+  b) generate schema into Vertica from POCOs
+  c) Use Vertica-style prepared statements (these differ from PostGreSQL)
   
-This is an example of how to integrate NHibernate with Vertica 7 and NO SUPPORT IS IMPLIED.
+The TestConsole project demonstrates how to integrate NHibernate with Vertica 7.
+
+NO SUPPORT IS IMPLIED!
+
 
   
 
