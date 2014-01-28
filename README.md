@@ -3,7 +3,7 @@ NHibernate.Vertica
 
 Vertica 7 (Unofficial) Support for NHibernate (and Linq to NHibernate)
 
-NHibernate does not support Vertica at present. Some people seem to have been make use of the PostgreSQL.Standard configuration, though mostly on the Java front. It didn't work for me. In fact, there are numerous limitations and incompatibilities that crop up when using this NHibernate configuration.
+NHibernate does not offer support for Vertica 7, not surprising as it is new, not widely adopted and not a particularly strong player in Microsoft environments. Some people appear to have been able to get Java Hibernate working with the PostgreSQL.Standard configuration, but that is with Java and JDBC. When I tried to use PostgresSQL it didn't work even after installing the Npgsql ADO.NET driver. There are some limitations and incompatibilities that crop up when attempting to use the NHibernate Postgresql configuration.
 
 This package implements an Vertica7 Driver and Dialect for NHibernate. It uses the Vertica 7 ADO.NET provider by subclassing the PostgreSQL Dialect:
 
@@ -28,7 +28,7 @@ The TestConsole project demonstrates how to integrate NHibernate with Vertica 7.
 
 Pre-requisites:
 Dependent DLLs are referenced from nuget where possible. 
-Also requires the installation of the Vertica 7 ADO.NET Driver (Vertica.Data)
+Also requires the installation of the Vertica 7 ADO.NET Driver (Vertica.Data) available at http://www.vertica.com/.
 
 
 
