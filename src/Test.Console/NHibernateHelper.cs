@@ -48,10 +48,8 @@ namespace NHibernate.Vertica.TestConsole
         {
             // TODO: fill in your credentials here!
             _sessionFactory = Fluently.Configure()
-                .Database(FluentNHibernate.Cfg.Db.PostgreSQLConfiguration.Standard
+                .Database(NHibernate.Vertica.Vertica7Configuration.Standard
                               .ConnectionString(@"Servername=<myserver>;Port=5433;Database=<mydb>;Username=dbadmin;Password=<mypassword>")
-                              .Driver<NHibernate.Vertica.Vertica7Driver>()
-                              .Dialect<NHibernate.Vertica.Vertica7Dialect>()
                               .ShowSql()
                 )
                 .Mappings(m =>
