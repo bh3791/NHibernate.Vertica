@@ -9,10 +9,9 @@ This package implements an Vertica7 Driver and Dialect for NHibernate. It uses t
 
             _sessionFactory = Fluently.Configure()
                 .Database(FluentNHibernate.Cfg.Db.PostgreSQLConfiguration.Standard
-                              .ConnectionString(@"Servername=<myserver>;Port=5433;Database=<mydb>;Username=dbadmin;Password=<mypassword>")
+                              .ConnectionString(@"Servername=<Vertica7Server>;Port=5433;Database=<mydb>;Username=dbadmin;Password=<mypassword>")
                               .Driver<NHibernate.Vertica.Vertica7Driver>()
                               .Dialect<NHibernate.Vertica.Vertica7Dialect>()
-                              .ShowSql()
 
 It is then possible to use NHibernate with Vertica 7 to:
   a) select data out of Vertica using Linq to NHibernate:
