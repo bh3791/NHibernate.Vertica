@@ -30,6 +30,9 @@ Pre-requisites:
 Dependent DLLs are referenced from nuget where possible. 
 Also requires the installation of the Vertica 7 ADO.NET Driver (Vertica.Data) available at http://www.vertica.com/.
 
+NUGET
+This package is available at Nuget, https://www.nuget.org/packages/NHibernate.Vertica/
+
 
 
   
