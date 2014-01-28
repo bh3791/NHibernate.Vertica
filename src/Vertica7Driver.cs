@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Vertica.Data;
 using System.Data;
 using System.Reflection;
 
@@ -21,7 +20,7 @@ namespace NHibernate.Vertica
             : base(
                 "Vertica",
                 // "Vertica.Data", 
-                Assembly.LoadWithPartialName("Vertica.Data").FullName,
+                Assembly.LoadWithPartialName("Vertica.Data").FullName, // needed in order to locate fully qualified name from GAC
                 "Vertica.Data.VerticaClient.VerticaConnection",
                 "Vertica.Data.VerticaClient.VerticaCommand")
         {
