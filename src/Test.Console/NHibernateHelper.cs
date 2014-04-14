@@ -2,6 +2,7 @@ using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
 using NHibernate;
 using NHibernate.Tool.hbm2ddl;
+using System.Configuration;
 
 namespace NHibernate.Vertica.TestConsole
 {
@@ -31,16 +32,26 @@ namespace NHibernate.Vertica.TestConsole
         /// </summary>
         private static void InitializeSessionFactoryMySql()
         {
+			var cn = ConfigurationManager.ConnectionStrings["Vertica7"];
+            
             _sessionFactory = Fluently.Configure()
-                .Database(FluentNHibernate.Cfg.Db.MySQLConfiguration.Standard
-                              .ConnectionString(@"Server=localhost;Database=test;Uid=root;Pwd=;")
+                .Database(FluentNHibernate.Cfg.Db.MsSqlConfiguration.MsSql2012
+                              .ConnectionString(cn.ConnectionString)
                               .ShowSql()
                 )
                 .Mappings(m =>
                           m.FluentMappings
                               .AddFromAssemblyOf<Car>())
+				// comment this out to avoid schema autogeneration
                 .ExposeConfiguration(cfg => new SchemaExport(cfg)
                                                 .Create(true, true))
+
+				/* consider controlling batch size for inserts and updates
+				.ExposeConfiguration(config =>
+				{
+					config.SetProperty("adonet.batch_size", "1");
+				})
+				*/
                 .BuildSessionFactory();
         }
 
