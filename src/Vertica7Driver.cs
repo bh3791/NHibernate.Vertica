@@ -1,3 +1,4 @@
+﻿
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -5,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Reflection;
+using System.Data.Common;
+using NHibernate.SqlTypes;
 
 namespace NHibernate.Vertica
 {
@@ -80,7 +83,7 @@ namespace NHibernate.Vertica
             get { return true; }
         }
 
-        protected override void InitializeParameter(IDbDataParameter dbParam, string name, NHibernate.SqlTypes.SqlType sqlType)
+        protected override void InitializeParameter(DbParameter dbParam, string name, SqlType sqlType)
         {
             base.InitializeParameter(dbParam, name, sqlType);
 

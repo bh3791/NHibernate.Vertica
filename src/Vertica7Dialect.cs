@@ -30,7 +30,7 @@ namespace NHibernate.Vertica
         public Vertica7Dialect()
         {
     
-	        DefaultProperties[Environment.ConnectionDriver] = "NHibernate.Vertica.VerticaDriver";
+	        DefaultProperties[Environment.ConnectionDriver] = typeof(Vertica7Driver).AssemblyQualifiedName;
 			
 			RegisterColumnType(DbType.AnsiStringFixedLength, "char(255)");
 			RegisterColumnType(DbType.AnsiStringFixedLength, 8000, "char($l)");
